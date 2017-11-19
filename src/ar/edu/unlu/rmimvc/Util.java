@@ -1,4 +1,4 @@
-package ar.edu.unlu.mvcrmi;
+package ar.edu.unlu.rmimvc;
 
 import java.net.Inet4Address;
 import java.net.InetAddress;

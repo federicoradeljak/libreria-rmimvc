@@ -1,4 +1,4 @@
-package ar.edu.unlu.mvcrmi;
+package ar.edu.unlu.rmimvc;
 
 /**
  * Excepción que es lanzada por la librería MVCRMI por problemas al buscar y registrar modelo/controlador en los registros RMI.

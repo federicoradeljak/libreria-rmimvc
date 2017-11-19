@@ -1,4 +1,4 @@
-package ar.edu.unlu.mvcrmi.observer;
+package ar.edu.unlu.rmimvc.observer;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
