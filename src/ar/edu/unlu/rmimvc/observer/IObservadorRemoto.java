@@ -4,20 +4,20 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 /**
- * Esta interface forma parte del conjunto de interfaces y clases que permiten aplicar el patrÛn Observer 
+ * Esta interface forma parte del conjunto de interfaces y clases que permiten aplicar el patr√≥n Observer 
  * entre el modelo que reside en el servidor y el controlador que posee cada cliente. Extiende la interface Remote
- * ya que el observable ser· accedido remotamente, por eso todos los mÈtodos pueden generar una RemoteException.
+ * ya que el observable ser√° accedido remotamente, por eso todos los m√©todos pueden generar una RemoteException.
  * El controlador de cada cliente remoto debe implementar esta interface para poder suscribirse a los cambios en el modelo.
  * 
  */
 public interface IObservadorRemoto extends Remote {
 	
 	/**
-	 * Este mÈtodo es llamado cada vez que el modelo notifica de un cambio de estado.
+	 * Este m√©todo es llamado cada vez que el modelo notifica de un cambio de estado.
 	 *
-	 * @param observable el objeto observable que generÛ la actualizaciÛn.
+	 * @param observable el objeto observable que gener√≥ la actualizaci√≥n.
 	 * @param o objeto que envia el observable.
-	 * @throws RemoteException como es un mÈtodo remoto puede fallar la comunicaciÛn.
+	 * @throws RemoteException como es un m√©todo remoto puede fallar la comunicaci√≥n.
 	 * @see Remote
 	 * @see RemoteException
 	 */

@@ -5,11 +5,11 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 /**
- * Esta clase forma parte del conjunto de interfaces y clases que permiten aplicar el patrón Observer 
+ * Esta clase forma parte del conjunto de interfaces y clases que permiten aplicar el patrÃ³n Observer 
  * entre el modelo que reside en el servidor y el controlador que posee cada cliente.
  * El modelo remoto debe extender de esta clase para poder notificar a los controladores de los cambios
- * mediante el método notificarObservadores().
- * Cada controlador debe suscribirse con el método agregarObservador() para recibir las actualizaciones del modelo remoto.
+ * mediante el mÃ©todo notificarObservadores().
+ * Cada controlador debe suscribirse con el mÃ©todo agregarObservador() para recibir las actualizaciones del modelo remoto.
  *
  */
 public abstract class ObservableRemoto implements Remote, IObservableRemoto {

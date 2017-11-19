@@ -9,7 +9,7 @@ import java.rmi.server.UnicastRemoteObject;
 
 /**
  * Esta clase abstracta es la base para la clase Cliente y Servidor que 
- * inician un servidor RMI local para la comunicaciÛn.
+ * inician un servidor RMI local para la comunicaci√≥n.
  *
  */
 public abstract class ServidorRMI {
@@ -20,8 +20,8 @@ public abstract class ServidorRMI {
 	/**
 	 * Constructor de la clase.
 	 * 
-	 * @param host IP en la que el servidor RMI escuchar· peticiones.
-	 * @param port puerto en el que el servidor RMI escuchar· peticiones.
+	 * @param host IP en la que el servidor RMI escuchar√° peticiones.
+	 * @param port puerto en el que el servidor RMI escuchar√° peticiones.
 	 */
 	public ServidorRMI(String host, int port) {
 		this.host = host;
@@ -31,7 +31,7 @@ public abstract class ServidorRMI {
 	/**
 	 * Inicia el servidor RMI.
 	 * 
-	 * @throws RemoteException error lanzado por problemas en la conexiÛn de red.
+	 * @throws RemoteException error lanzado por problemas en la conexi√≥n de red.
 	 */
 	public void iniciarServidorRMI() throws RemoteException {
 		System.setProperty("java.rmi.server.hostname", this.host);
@@ -40,15 +40,15 @@ public abstract class ServidorRMI {
 	
 	/**
 	 * Exporta un objeto al repositorio RMI para que sea accedido remotamente y 
-	 * devuelve un objeto "stub" que ejecuta sus mÈtodos en el objeto remoto.
-	 * El objeto pasado como par·metro debe implementar la interface java.rmi.Remote o alguna
-	 * interf·z que herede de ella.
+	 * devuelve un objeto "stub" que ejecuta sus m√©todos en el objeto remoto.
+	 * El objeto pasado como par√°metro debe implementar la interface java.rmi.Remote o alguna
+	 * interf√°z que herede de ella.
 	 *
-	 * @param <T> tipo genÈrico.
-	 * @param nombre el nombre con el que ser· registrado el objeto.
+	 * @param <T> tipo gen√©rico.
+	 * @param nombre el nombre con el que ser√° registrado el objeto.
 	 * @param object objeto a registrar.
-	 * @return un objeto "stub" del mismo tipo que el par·metro object.
-	 * @throws RemoteException error lanzado por problemas de comunicaciÛn en la red.
+	 * @return un objeto "stub" del mismo tipo que el par√°metro object.
+	 * @throws RemoteException error lanzado por problemas de comunicaci√≥n en la red.
 	 * @throws AlreadyBoundException error lanzado por registrar un objeto que ya se encuentra registrado.
 	 */
 	@SuppressWarnings("unchecked")

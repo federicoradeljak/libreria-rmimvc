@@ -9,11 +9,11 @@ import java.util.Collections;
 import java.util.Enumeration;
 
 /**
- * Clase que agrupa funcionalidades comúnmente uilizadas.
+ * Clase que agrupa funcionalidades comÃºnmente uilizadas.
  */
 public class Util {
 	/**
-	 * Función para listar todas las IPs disponibles de todas las interfaces en el equipo.
+	 * FunciÃ³n para listar todas las IPs disponibles de todas las interfaces en el equipo.
 	 * 
 	 * @return Lista de IPs disponibles en forma de String.
 	 */

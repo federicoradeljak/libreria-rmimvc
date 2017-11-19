@@ -7,17 +7,17 @@ import ar.edu.unlu.rmimvc.observer.IObservableRemoto;
 import ar.edu.unlu.rmimvc.observer.IObservadorRemoto;
 
 /**
- * Esta interface debe ser implementada por el controlador remoto. El único método que
- * posee es el necesario para decirle al controlador cual es el modelo con el que se comunicará.
+ * Esta interface debe ser implementada por el controlador remoto. El Ãºnico mÃ©todo que
+ * posee es el necesario para decirle al controlador cual es el modelo con el que se comunicarÃ¡.
  */
 public interface IControladorRemoto extends IObservadorRemoto {
 	
 	/**
-	 * El controlador debe implmentar este método y guardar el modelo remoto pasado como parámetro.
+	 * El controlador debe implmentar este mÃ©todo y guardar el modelo remoto pasado como parÃ¡metro.
 	 *
-	 * @param <T> el tipo genérico.
+	 * @param <T> el tipo genÃ©rico.
 	 * @param modeloRemoto el "stub" del modelo remoto.
-	 * @throws RemoteException como es un método remoto puede fallar la comunicación.
+	 * @throws RemoteException como es un mÃ©todo remoto puede fallar la comunicaciÃ³n.
 	 * @see Remote
 	 * @see RemoteException
 	 */
