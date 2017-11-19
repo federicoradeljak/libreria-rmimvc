@@ -8,7 +8,15 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Enumeration;
 
+/**
+ * Clase que agrupa funcionalidades comúnmente uilizadas.
+ */
 public class Util {
+	/**
+	 * Función para listar todas las IPs disponibles de todas las interfaces en el equipo.
+	 * 
+	 * @return Lista de IPs disponibles en forma de String.
+	 */
     public static ArrayList<String> getIpDisponibles() {
     	ArrayList<String> ips = new ArrayList<>();
     	Enumeration<NetworkInterface> nets;

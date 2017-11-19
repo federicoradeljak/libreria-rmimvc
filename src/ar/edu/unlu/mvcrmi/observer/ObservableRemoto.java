@@ -23,7 +23,7 @@ public abstract class ObservableRemoto implements Remote, IObservableRemoto {
 	 * @see ar.edu.unlu.mvcrmi.IObservableRemoto#agregarObservador(ar.edu.unlu.mvcrmi.ObservadorRemoto)
 	 */
 	@Override
-	public void agregarObservador(IObservadorRemoto o) {
+	public void agregarObservador(IObservadorRemoto o) throws RemoteException {
 		this.observadores.add(o);
 	}
 	
@@ -31,7 +31,7 @@ public abstract class ObservableRemoto implements Remote, IObservableRemoto {
 	 * @see ar.edu.unlu.mvcrmi.IObservableRemoto#removerObservador(ar.edu.unlu.mvcrmi.ObservadorRemoto)
 	 */
 	@Override
-	public void removerObservador(IObservadorRemoto o) {
+	public void removerObservador(IObservadorRemoto o) throws RemoteException {
 		this.observadores.remove(o);
 	}
 	

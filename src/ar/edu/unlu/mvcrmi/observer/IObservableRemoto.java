@@ -12,28 +12,40 @@ public interface IObservableRemoto extends Remote {
 
 	/**
 	 * Agrega un observador para que pueda recibir las actualizaciones de cambios de estado.
+	 * 
 	 * @param o observador a agregar.
-	 * @throws RemoteException
+	 * @throws RemoteException como es un método remoto puede fallar la comunicación.
+	 * @see Remote
+	 * @see RemoteException
 	 */
 	public void agregarObservador(IObservadorRemoto o) throws RemoteException;
 
 	/**
 	 * Saca un observador para que deje de recibir actualizaciones en los cambios de estado.
+	 * 
 	 * @param o observador a remover.
-	 * @throws RemoteException
+	 * @throws RemoteException como es un método remoto puede fallar la comunicación.
+	 * @see Remote
+	 * @see RemoteException
 	 */
 	public void removerObservador(IObservadorRemoto o) throws RemoteException;
 
 	/**
 	 * Notifica a cada uno de los observadores pasándoles el parámetro obj.
+	 * 
 	 * @param obj objeto a pasar con la notificación de cambio de estado.
-	 * @throws RemoteException
+	 * @throws RemoteException como es un método remoto puede fallar la comunicación.
+	 * @see Remote
+	 * @see RemoteException
 	 */
 	public void notificarObservadores(Object obj) throws RemoteException;
 
 	/**
 	 * Notifica a cada uno de los observadores de un cambio de estado.
-	 * @throws RemoteException
+	 * 
+	 * @throws RemoteException como es un método remoto puede fallar la comunicación.
+	 * @see Remote
+	 * @see RemoteException
 	 */
 	public void notificarObservadores() throws RemoteException;
 

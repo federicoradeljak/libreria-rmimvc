@@ -1,12 +1,13 @@
 package ar.edu.unlu.mvcrmi.cliente;
 
-import java.rmi.AccessException;
 import java.rmi.AlreadyBoundException;
 import java.rmi.NotBoundException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+
+import ar.edu.unlu.mvcrmi.MVCRMIException;
 import ar.edu.unlu.mvcrmi.ServidorRMI;
 import ar.edu.unlu.mvcrmi.observer.IObservableRemoto;
 
@@ -20,6 +21,7 @@ public class Cliente extends ServidorRMI {
 
 	/**
 	 * Constructor de la clase.
+	 * 
 	 * @param host IP en la que el cliente escuchará las peticiones.
 	 * @param port host en el que el cliente escuchará las peticiones.
 	 * @param serverHost IP del servidor al que conectarse.
@@ -34,21 +36,31 @@ public class Cliente extends ServidorRMI {
 	/**
 	 * Inicia el servidor local con el objeto controlador y conecta con el servidor con el modelo remoto. Además
 	 * devuelve el objeto "stub" del controlador que permite usar el objeto del modelo remotamente
+	 *
+	 * @param <T> el tipo genérico.
 	 * @param controlador objeto del controlador que quedará accesible remotamente.
 	 * @return controladorRemoto objeto "stub" del controlador que quedará accesible remotamente.
-	 * @throws AlreadyBoundException
-	 * @throws AccessException
-	 * @throws RemoteException
-	 * @throws NotBoundException
+	 * @throws MVCRMIException excepción lanzada por problemas al registrar el controlador en el servidor RMI o buscar el modelo en el servidor RMI remoto.
+	 * @throws RemoteException excepción lanzada por problemas de comunicación de red con objetos remotos.
 	 */
 	@SuppressWarnings("unchecked")
-	public <T extends Remote & IObservableRemoto> IControladorRemoto iniciar(IControladorRemoto controlador) throws AlreadyBoundException, AccessException, RemoteException, NotBoundException {
+	public <T extends Remote & IObservableRemoto> IControladorRemoto iniciar(IControladorRemoto controlador) throws MVCRMIException, RemoteException {
 		this.iniciarServidorRMI();
 		Registry registro = LocateRegistry.getRegistry(this.serverHost, this.serverPort);
-		T modeloRemoto = (T) registro.lookup("MVCRMI/Modelo");
+		T modeloRemoto;
+		try {
+			modeloRemoto = (T) registro.lookup("MVCRMI/Modelo");
+		} catch (NotBoundException e) {
+			throw new MVCRMIException("No se encontró el modelo en el registro remoto.");
+		}
 		controlador.setModeloRemoto(modeloRemoto);
 		
-		IControladorRemoto controladorRemoto = this.exportarObjeto("MVCRMI/Cliente", controlador);
+		IControladorRemoto controladorRemoto;
+		try {
+			controladorRemoto = this.exportarObjeto("MVCRMI/Cliente", controlador);
+		} catch (AlreadyBoundException e) {
+			throw new MVCRMIException("Error al registrar el controlador en el servidor RMI local.");
+		}
 		modeloRemoto.agregarObservador(controladorRemoto);
 		return controladorRemoto;
 	}
