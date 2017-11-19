@@ -11,13 +11,15 @@ import java.rmi.RemoteException;
  * 
  */
 public interface IObservadorRemoto extends Remote {
+	
 	/**
 	 * Este método es llamado cada vez que el modelo notifica de un cambio de estado.
-	 * 
+	 *
+	 * @param observable el objeto observable que generó la actualización.
 	 * @param o objeto que envia el observable.
 	 * @throws RemoteException como es un método remoto puede fallar la comunicación.
 	 * @see Remote
 	 * @see RemoteException
 	 */
-	public void actualizar(Object o) throws RemoteException;
+	public void actualizar(IObservableRemoto observable, Object o) throws RemoteException;
 }

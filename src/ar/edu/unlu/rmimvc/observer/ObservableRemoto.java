@@ -41,7 +41,7 @@ public abstract class ObservableRemoto implements Remote, IObservableRemoto {
 	@Override
 	public void notificarObservadores(Object obj) throws RemoteException {
 		for (IObservadorRemoto o: this.observadores) {
-			o.actualizar(obj);
+			o.actualizar(this, obj);
 			/*new Thread(new Runnable() {
 				@Override
 				public void run() {
