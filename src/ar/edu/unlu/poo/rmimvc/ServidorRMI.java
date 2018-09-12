@@ -1,4 +1,4 @@
-package ar.edu.unlu.rmimvc;
+package ar.edu.unlu.poo.rmimvc;
 
 import java.rmi.AlreadyBoundException;
 import java.rmi.Remote;

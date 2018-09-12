@@ -1,10 +1,10 @@
-package ar.edu.unlu.rmimvc.cliente;
+package ar.edu.unlu.poo.rmimvc.cliente;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-import ar.edu.unlu.rmimvc.observer.IObservableRemoto;
-import ar.edu.unlu.rmimvc.observer.IObservadorRemoto;
+import ar.edu.unlu.poo.rmimvc.observer.IObservableRemoto;
+import ar.edu.unlu.poo.rmimvc.observer.IObservadorRemoto;
 
 /**
  * Esta interface debe ser implementada por el controlador remoto. El único método que

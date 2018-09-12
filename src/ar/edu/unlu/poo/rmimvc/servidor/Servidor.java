@@ -1,11 +1,11 @@
-package ar.edu.unlu.rmimvc.servidor;
+package ar.edu.unlu.poo.rmimvc.servidor;
 
 import java.rmi.AlreadyBoundException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-import ar.edu.unlu.rmimvc.RMIMVCException;
-import ar.edu.unlu.rmimvc.ServidorRMI;
+import ar.edu.unlu.poo.rmimvc.RMIMVCException;
+import ar.edu.unlu.poo.rmimvc.ServidorRMI;
 
 /**
  * Esta clase representa al servidor que hará disponible el modelo remotamente.

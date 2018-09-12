@@ -1,4 +1,4 @@
-package ar.edu.unlu.rmimvc.cliente;
+package ar.edu.unlu.poo.rmimvc.cliente;
 
 import java.rmi.AlreadyBoundException;
 import java.rmi.NotBoundException;
@@ -7,9 +7,9 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
-import ar.edu.unlu.rmimvc.RMIMVCException;
-import ar.edu.unlu.rmimvc.ServidorRMI;
-import ar.edu.unlu.rmimvc.observer.IObservableRemoto;
+import ar.edu.unlu.poo.rmimvc.RMIMVCException;
+import ar.edu.unlu.poo.rmimvc.ServidorRMI;
+import ar.edu.unlu.poo.rmimvc.observer.IObservableRemoto;
 
 /**
  * Esta clase representa al cliente que se conectará con el servidor y hará disponible
