@@ -20,7 +20,7 @@ Como el modelo será accedido a través de la red las posibilidades de que falle
 - Crear interface con los métodos públicos del modelo y hacer que la interfaz extienda de `IObservableRemoto`    
 Para esta tarea, si estamos usando Eclipse, podemos seleccionar el código de nuestra clase y hacer click derecho, ir a *Refactor->Extract Interface...*
 
-- Hacer que el modelo implemente `IControladorRemoto`   
+- Hacer que el controlador implemente `IControladorRemoto`   
 Nuevamente, si usamos la implementación Observer de java, habría que reemplazar en la cláusula implements la interface `Observer` por `IControladorRemoto`. Esta interface extiende de `IObservadorRemoto` y agrega un método para establecer el modelo al controlador (método `setModeloRemoto()`). 
 
 - Reemplazar el método de actualización/notificación del controlador por el método `actualizar()`   
