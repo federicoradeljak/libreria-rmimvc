@@ -32,7 +32,7 @@ Este método únicamente tiene que guardar la instancia del modelo remoto pasado
 *Ejemplo:*
 ```
 public <T extends IObservableRemoto> void setModeloRemoto(T modeloRemoto) {
-	this.modelo = modeloRemoto;
+	this.modelo = (IModelo) modeloRemoto; // es necesario castear el modelo remoto 
 }
 ```
 *NOTA: no hace falta usar el método `agregarObservador()` del modelo, la libreria agrega al controlador automáticamente 	como observador del modelo.*
