@@ -53,8 +53,10 @@ try {
 	cliente.iniciar(controlador); // enlaza el controlador con el modelo remoto 
 } catch (RemoteException e) {
 	// error de conexión
+	e.printStackTrace();
 } catch (RMIMVCException e) {
-	// error al crear el objeto de acceso remoto del modelo o del controlador 
+	// error al crear el objeto de acceso remoto del modelo o del controlador
+	e.printStackTrace();
 }
 ```
 
@@ -66,8 +68,10 @@ try {
 	servidor.iniciar(modelo);
 } catch (RemoteException e) {
 	// error de conexión
+	e.printStackTrace();
 } catch (RMIMVCException e) {
-	// error al crear el objeto de acceso remoto del modelo 
+	// error al crear el objeto de acceso remoto del modelo
+	e.printStackTrace();
 }
 ```
 
