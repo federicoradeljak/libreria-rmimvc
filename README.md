@@ -8,25 +8,23 @@ El JavaDoc de la librería se encuentra en la carpeta `doc` del repositorio o pu
 Si usted ya tiene un juego o aplicación con el patrón MVC aplicado, usar la librería rmimvc para hacerlo funcionar en red y con usuarios remotos no implica grandes modificaciones. 
 
 **Los cambios a realizar en cualquier aplicación con MVC y observer entre el modelo y el controlador son los siguientes:**
-- Hacer que el modelo herede de `ObservableRemoto`   
-En el caso de que se esté usando la implementación propia de java habría que  reemplazar la clase `Observable` de la cláusula extensión por la clase `ObservableRemoto`.
+- Hacer que el **modelo herede** de `ObservableRemoto`   
+Eliminar el comportamiento de gestión de observables de la clase (ya lo gestiona la librería).
 
-- Cambiar el método de notificación a los observadores en uso por el método `notificarObservadores(Object arg)`  
-En el caso de usar la clase `Observable` de java hay que reemplazar `setChanged()` y `notifyObservers()` por `notificarObservadores()`.
+- Cambiar el **método de notificación** a los observadores en uso por el método `notificarObservadores(Object arg)`  
 
-- Agregar throws `RemoteException` a cada método público del modelo   
+- **Agregar throws** `RemoteException` a cada método público del modelo   
 Como el modelo será accedido a través de la red las posibilidades de que falle la llamada a uno de sus métodos es mucha, si pasa, se lanzará la excepción `RemoteException`.
 
-- Crear interface con los métodos públicos del modelo y hacer que la interfaz extienda de `IObservableRemoto`    
-Para esta tarea, si estamos usando Eclipse, podemos seleccionar el código de nuestra clase y hacer click derecho, ir a *Refactor->Extract Interface...*
+- **Crear interface** con los métodos públicos del modelo y **hacer que la interfaz extienda** de `IObservableRemoto`    
+Para esta tarea, si estamos usando Eclipse, podemos seleccionar el código de nuestra clase y hacer click derecho, ir a *Refactor->Extract Interface...*. Si se usa IntelliJ, hacer click derecho en el nombre de la clase y elegir **
 
-- Hacer que el controlador implemente `IControladorRemoto`   
-Nuevamente, si usamos la implementación Observer de java, habría que reemplazar en la cláusula implements la interface `Observer` por `IControladorRemoto`. Esta interface extiende de `IObservadorRemoto` y agrega un método para establecer el modelo al controlador (método `setModeloRemoto()`). 
+- Hacer que el **controlador implemente** `IControladorRemoto`   
+Esta interface extiende de `IObservadorRemoto` y agrega un método para establecer el modelo al controlador (método `setModeloRemoto()`). 
 
-- Reemplazar el método de actualización/notificación del controlador por el método `actualizar()`   
-Para la implementación Observer de java hay que cambiar el método `update()` por `actualizar()`. 
+- **Reemplazar el método de actualización/notificación** del controlador por el método `actualizar()`   
 
-- Crear el método del controlador que permite setear el modelo remoto `setModeloRemoto()`    
+- **Crear el método** del controlador que permite setear el modelo remoto `setModeloRemoto()`    
 Este método únicamente tiene que guardar la instancia del modelo remoto pasado como parámetro para usar durante la ejecución de la aplicación.
 
 *Ejemplo:*
@@ -37,10 +35,10 @@ public <T extends IObservableRemoto> void setModeloRemoto(T modeloRemoto) {
 ```
 *NOTA: no hace falta usar el método `agregarObservador()` del modelo, la libreria agrega al controlador automáticamente 	como observador del modelo.*
 
-- Implementar control de errores en cada llamada del controlador a métodos del modelo para manejar las excepciones `RemoteException`    
+- **Implementar control de errores** en cada llamada del controlador a métodos del modelo para manejar las excepciones `RemoteException`    
 Todas las llamadas a métodos del modelo ahora pueden fallar por varias razones dependientes de la red. Es necesario manejar los errores que puedan generar y mostrar mensajes de error y recuperar el estado de la aplicación. 
 
-- Crear las clases `Cliente` y `Servidor`    
+- **Crear las clases** `Cliente` y `Servidor`    
 Es necesario crear las clases que crearán y comenzarán la ejecución del servidor y de la aplicación cliente.   
 
 *Ejemplo de clase del cliente:*
@@ -75,7 +73,7 @@ try {
 }
 ```
 
-- Hacer serializables todas las clases que sean pasadas como parámetro o devueltas en métodos del modelo    
+- **Hacer serializables** todas las clases que sean pasadas como parámetro o devueltas en métodos del modelo    
 Todas las clases y tipos que sean pasadas como parámetro a métodos de modelo o sean devueltas por el mismo deben implementar la interface `Serializable`, para poder ser enviados a través de la red.   
 Los tipos y clases básicos de java son serializables y no es necesario hacer nada antes de usarlos.
 
